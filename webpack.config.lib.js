@@ -1,7 +1,9 @@
+"use strict";
 var path = require("path");
 var webpack = require("webpack");
 
 var OPTIMIZE = process.env.OPTIMIZE === "true";
+var OPT_EXT = OPTIMIZE ? ".min" : "";
 
 module.exports = {
   context: path.join(__dirname, "client"),
@@ -10,12 +12,12 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "dist/webpack"),
-    filename: "[name]" + (OPTIMIZE ? ".min" : "") + ".js",
+    filename: "[name]" + OPT_EXT + ".js",
     library: "[name]_[hash]"
   },
   plugins: [
     new webpack.DllPlugin({
-      path: path.join(__dirname, "dist/webpack/[name]-manifest" + (OPTIMIZE ? ".min" : "") + ".json"),
+      path: path.join(__dirname, "dist/webpack/[name]-manifest" + OPT_EXT + ".json"),
       name: "[name]_[hash]"
     })
   ].concat(OPTIMIZE ? [

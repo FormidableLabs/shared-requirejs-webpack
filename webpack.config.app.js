@@ -1,7 +1,9 @@
+"use strict";
 var path = require("path");
 var webpack = require("webpack");
 
 var OPTIMIZE = process.env.OPTIMIZE === "true";
+var OPT_EXT = OPTIMIZE ? ".min" : "";
 
 module.exports = {
   context: path.join(__dirname, "client"),
@@ -15,7 +17,7 @@ module.exports = {
   plugins: [
     new webpack.DllReferencePlugin({
       context: path.join(__dirname, "client"),
-      manifest: require("./dist/webpack/lib-manifest" + (OPTIMIZE ? ".min" : "") + ".json")
+      manifest: require("./dist/webpack/lib-manifest" + OPT_EXT + ".json")
     })
   ].concat(OPTIMIZE ? [
     new webpack.optimize.UglifyJsPlugin()
