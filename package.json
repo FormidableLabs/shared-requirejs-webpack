@@ -19,7 +19,8 @@
     "wp-gzip-size": "echo Webpack: $(gzip -c dist/webpack/*.min.js | wc -c)",
     "rjs-gzip-size": "echo RequireJS: $(gzip -c dist/requirejs/*.min.js | wc -c)",
     "gzip-sizes": "npm run wp-gzip-size && npm run rjs-gzip-size",
-    "all": "npm run build && npm run sizes && npm run gzip-sizes"
+    "all": "npm run build && npm run sizes && npm run gzip-sizes",
+    "server": "http-server -p 4040 ."
   },
   "author": "",
   "license": "MIT",
@@ -28,5 +29,6 @@
     "lodash": "^3.10.1",
     "requirejs": "^2.1.20",
     "webpack": "^1.12.2"
-  }
+  },
+  "devDependencies": {}
 }

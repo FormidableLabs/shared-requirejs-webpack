@@ -17,5 +17,5 @@
       insertRequire: ["app"]  // Actually execute `app` entry point
     }
   ],
-  optimize: "uglify2"
+  optimize: "none"
 })
