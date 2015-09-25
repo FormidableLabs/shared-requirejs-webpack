@@ -1,0 +1,32 @@
+{
+  "name": "shared-requirejs-webpack",
+  "version": "0.0.1",
+  "description": "Build experiments for shared common libs in RequireJS, Webpack",
+  "main": "index.js",
+  "scripts": {
+    "wp-clean": "rm -rf dist/webpack/*.{js,json}",
+    "wp-build-lib": "webpack --config webpack.config.lib.js",
+    "wp-build-lib-min": "OPTIMIZE=true webpack --config webpack.config.lib.js",
+    "wp-build-app": "webpack --config webpack.config.app.js",
+    "wp-build-app-min": "OPTIMIZE=true webpack --config webpack.config.app.js",
+    "wp-build": "npm run wp-clean && npm run wp-build-lib && npm run wp-build-lib-min && npm run wp-build-app && npm run wp-build-app-min",
+    "rjs-clean": "rm -rf dist/requirejs/*.{js,json} build/requirejs",
+    "rjs-build-almond": "mkdir -p dist/requirejs && node_modules/webpack/node_modules/uglify-js/bin/uglifyjs node_modules/almond/almond.js -o dist/requirejs/almond.min.js --compress --mangle",
+    "rjs-build-app": "r.js -o requirejs.build.js && cp build/requirejs/{lib,app}.min.js dist/requirejs",
+    "rjs-build": "npm run rjs-clean && npm run rjs-build-almond && npm run rjs-build-app",
+    "build": "npm run wp-build && npm run rjs-build",
+    "sizes": "wc -c dist/webpack/*.min.js && wc -c dist/requirejs/*.min.js",
+    "wp-gzip-size": "echo Webpack: $(gzip -c dist/webpack/*.min.js | wc -c)",
+    "rjs-gzip-size": "echo RequireJS: $(gzip -c dist/requirejs/*.min.js | wc -c)",
+    "gzip-sizes": "npm run wp-gzip-size && npm run rjs-gzip-size",
+    "all": "npm run build && npm run sizes && npm run gzip-sizes"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "almond": "^0.3.1",
+    "lodash": "^3.10.1",
+    "requirejs": "^2.1.20",
+    "webpack": "^1.12.2"
+  }
+}
