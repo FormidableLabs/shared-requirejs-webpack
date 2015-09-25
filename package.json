@@ -12,7 +12,7 @@
     "wp-build": "npm run wp-clean && npm run wp-build-lib && npm run wp-build-lib-min && npm run wp-build-app && npm run wp-build-app-min",
     "rjs-clean": "rm -rf dist/requirejs/*.{js,json} build/requirejs*",
     "rjs-build-almond": "mkdir -p dist/requirejs && cp node_modules/almond/almond.js dist/requirejs/almond.js",
-    "rjs-build-app": "r.js -o requirejs.build.js && cp build/requirejs/{lib,app}.js dist/requirejs",
+    "rjs-build-app": "r.js -o requirejs.build.js && ls -R build && cp build/requirejs/{lib,app}.js dist/requirejs",
     "rjs-build-min-almond": "mkdir -p dist/requirejs-min && node_modules/webpack/node_modules/uglify-js/bin/uglifyjs node_modules/almond/almond.js -o dist/requirejs/almond.min.js --compress --mangle",
     "rjs-build-min-app": "r.js -o requirejs.build.min.js && cp build/requirejs-min/{lib,app}.min.js dist/requirejs",
     "rjs-build": "npm run rjs-clean && npm run rjs-build-almond && npm run rjs-build-app && npm run rjs-build-min-almond && npm run rjs-build-min-app",
