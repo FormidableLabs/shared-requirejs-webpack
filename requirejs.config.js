@@ -7,7 +7,7 @@
   }
 
   // Configure RequireJS.
-  var result = require.config({
+  require.config({
     baseUrl: "./client",
 
     // HBS options / build.
