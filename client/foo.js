@@ -1,5 +1,3 @@
-// BUG: Interlock can't handle this form (wp, rjs can).
-// define([], "Hi. I'm foo.");
-define([], function () {
-  return "Hi. I'm foo.";
+define(["./foo-dep", "./bar-dep"], function (fooDep, barDep) {
+  return "Hello. I'm foo. (" + fooDep + ") (" + barDep + ")";
 });

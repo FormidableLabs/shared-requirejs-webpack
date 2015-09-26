@@ -16,10 +16,12 @@
     "rjs-build-min-almond": "mkdir -p dist/requirejs && node_modules/webpack/node_modules/uglify-js/bin/uglifyjs node_modules/almond/almond.js -o dist/requirejs/almond.min.js --compress --mangle",
     "rjs-build-min-app": "r.js -o requirejs.build.min.js && cp build/requirejs-min/lib.min.js build/requirejs-min/app.min.js dist/requirejs",
     "rjs-build": "npm run rjs-clean && npm run rjs-build-almond && npm run rjs-build-app && npm run rjs-build-min-almond && npm run rjs-build-min-app",
-    "build": "npm run wp-build && npm run rjs-build",
+    "rp-clean": "rm -rf dist/requirepack.js",
+    "rp-build": "npm run rp-clean && node lib/requirepack.js > dist/requirepack.js",
+    "build": "npm run wp-build && npm run rjs-build && npm run rp-build",
     "server": "http-server -p 4040 .",
     "lint-client": "eslint -c .eslintrc-client client",
-    "lint-server": "eslint -c .eslintrc-server webpack.*.js",
+    "lint-server": "eslint -c .eslintrc-server webpack.*.js requirejs.config.js lib",
     "lint": "npm run lint-client && npm run lint-server",
     "test": "npm run lint"
   },
@@ -27,13 +29,22 @@
   "license": "MIT",
   "dependencies": {
     "almond": "^0.3.1",
+    "ast-types": "^0.8.12",
+    "async": "^1.4.2",
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "jquery": "^2.1.4",
     "lodash": "^3.10.1",
+    "madge": "^0.5.0",
     "requirejs": "^2.1.20",
     "webpack": "^1.12.2"
   },
   "devDependencies": {
+    "babel-eslint": "^4.1.3",
     "eslint": "^1.5.1",
     "eslint-config-defaults": "^6.0.0",
-    "eslint-plugin-filenames": "^0.1.2"
+    "eslint-plugin-filenames": "^0.1.2",
+    "esquery": "^0.4.0",
+    "estraverse": "^4.1.0"
   }
 }

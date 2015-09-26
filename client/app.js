@@ -1,5 +1,11 @@
-define(["./foo"], function (foo) {
-  var msg = document.createElement("h1");
-  msg.innerHTML = foo;
-  document.body.appendChild(msg);
+define([
+  "jquery",
+  "./foo",
+  "client/bar"
+], function ($, foo, bar) {
+  $("body")
+    .append($("<h2>Foo</h2>"))
+    .append($("<code />").text(foo))
+    .append($("<h2>Bar</h2>"))
+    .append($("<code />").text(bar));
 });
