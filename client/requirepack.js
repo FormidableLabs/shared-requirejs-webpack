@@ -32,11 +32,11 @@
    */
   // 1: `lib.js` has no RequireJS namespace
   convert("foo", 2);
-  convert("client/bar", 5);
   convert("foo-dep", 3);
   convert("client/foo-dep", 3);
   convert("bar-dep", 4);
   convert("client/bar-dep", 4);
+  convert("client/bar", 5);
   convert("jquery", 6);
 
   // TODO: Try different requires.
