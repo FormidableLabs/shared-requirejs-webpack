@@ -7,17 +7,17 @@
   }
 
   // Configure RequireJS.
-  require.config({
+  var result = require.config({
     baseUrl: "./client",
 
     // HBS options / build.
+    //
+    // TODO: Switch to `hbs/handlebars.runtime`. The
+    // `require-handlebars-plugin` is just the worst at this. We've got the
+    // **full** compiler currently in the RequireJS bundle. But, as we're
+    // targetting interop with the Webpack HBS, skipping for now.
     hbs: {
-      helpers: false,
-      i18n: false,
-      disableI18n: true,
-      compileOptions: {
-        data: true
-      }
+      helpers: false
     },
     pragmasOnSave: {
       // Removes Handlebars.Parser code (used to compile template strings).
@@ -26,14 +26,6 @@
       excludeHbs: true,
       // Removes i18n precompiler, handlebars and json2
       excludeAfterBuild: true
-    },
-
-    map: {
-      "*": {
-        // Direct imports can only use runtime.
-        "handlebars": "hbs/handlebars.runtime",
-        "Handlebars": "hbs/handlebars.runtime"
-      }
     },
 
     paths: {
