@@ -2,7 +2,7 @@
   "name": "shared-requirejs-webpack",
   "version": "0.0.1",
   "description": "Build experiments for shared common libs in RequireJS, Webpack",
-  "main": "index.js",
+  "main": "lib/requirepack.js",
   "scripts": {
     "wp-clean": "rm -rf dist/webpack*",
     "wp-build-lib": "webpack --config webpack.config.lib.js",
@@ -25,7 +25,15 @@
     "lint": "npm run lint-client && npm run lint-server",
     "test": "npm run lint"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FormidableLabs/shared-requirejs-webpack.git"
+  },
+  "author": "Ryan Roemer <ryan.roemer@formidablelabs.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/shared-requirejs-webpack/issues"
+  },
   "license": "MIT",
   "dependencies": {
     "almond": "^0.3.1",
