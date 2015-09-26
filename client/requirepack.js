@@ -8,7 +8,7 @@
 
   // Get the Webpack magic library variable.
   // TODO: Infer this generally using `lib-manifest.json` (`name`)
-  var lib = root.lib_034978f70650cb28c705;
+  var lib = root.lib_04d750d5639e9b7784d1;
 
   // Load and `define()` all lib dependencies.
   // TODO: Infer this generally using `lib-manifest.json`
