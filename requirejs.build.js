@@ -3,6 +3,7 @@
   appDir: "client",
   baseUrl: ".",
   dir: "build/requirejs",
+  mainConfigFile: "./requirejs.config.js",
   modules: [
     {
       name: "lib"

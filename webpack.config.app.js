@@ -14,6 +14,11 @@ module.exports = {
     path: path.join(__dirname, "dist/webpack"),
     filename: "[name]" + (OPTIMIZE ? ".min" : "") + ".js"
   },
+  resolve: {
+    alias: {
+      "client": path.join(__dirname, "client")
+    }
+  },
   plugins: [
     new webpack.DllReferencePlugin({
       context: path.join(__dirname, "client"),

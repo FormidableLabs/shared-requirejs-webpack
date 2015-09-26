@@ -1,3 +1,3 @@
 define([], function () {
-  return "Hi. I'm foo.";
+  return "Hello. I'm bar.";
 });
