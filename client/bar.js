@@ -1,3 +1,10 @@
-define(["client/foo-dep", "client/bar-dep"], function (fooDep, barDep) {
-  return "Hello. I'm bar. (" + fooDep + ") (" + barDep + ")";
+define([
+  "client/foo-dep",
+  "client/bar-dep",
+  "hbs!client/bar-tmpl"
+], function (fooDep, barDep, tmpl) {
+  return tmpl({
+    foo: fooDep,
+    bar: barDep
+  });
 });

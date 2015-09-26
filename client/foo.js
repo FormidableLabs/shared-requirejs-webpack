@@ -1,3 +1,10 @@
-define(["./foo-dep", "./bar-dep"], function (fooDep, barDep) {
-  return "Hello. I'm foo. (" + fooDep + ") (" + barDep + ")";
+define([
+  "./foo-dep",
+  "./bar-dep",
+  "hbs!./foo"
+], function (fooDep, barDep, tmpl) {
+  return tmpl({
+    foo: fooDep,
+    bar: barDep
+  });
 });
