@@ -19,7 +19,7 @@
     "build": "npm run wp-build && npm run rjs-build",
     "server": "http-server -p 4040 .",
     "lint-client": "eslint -c .eslintrc-client client",
-    "lint-server": "eslint -c .eslintrc-server webpack.*.js",
+    "lint-server": "eslint -c .eslintrc-server webpack.*.js requirejs.config.js lib",
     "lint": "npm run lint-client && npm run lint-server",
     "test": "npm run lint"
   },
